@@ -29,12 +29,11 @@ jobs:
       - name: Create and activate virtual environment with uv
         run: |
           uv venv
-          source .venv/Scripts/activate
           uv sync
 
       - name: Build MkDocs site
         run: |
-          source .venv/Scripts/activate
+          source .venv/bin/activate
           uvx mkdocs build --strict
 
       - name: Upload artifact
