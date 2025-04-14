@@ -26,12 +26,11 @@ jobs:
         run: |
           curl -LsSf https://astral.sh/uv/install.sh | sh
 
-      - name: Create venv
-        run: uv venv
-
-      - name: Enter venv
-        run: .venv/Scripts/activate
-
+      - name: Create and activate virtual environment with uv
+        run: |
+          uv venv
+          source .venv/bin/activate
+          
       - name: Install dependencies via uv
         run: |
           uv sync
