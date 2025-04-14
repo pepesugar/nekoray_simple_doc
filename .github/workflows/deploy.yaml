@@ -31,6 +31,11 @@ jobs:
           uv venv
           uv sync
 
+      - name: Verify mkdocs-material is installed
+        run: |
+          source .venv/bin/activate
+          pip show mkdocs-material
+
       - name: Build MkDocs site
         run: |
           source .venv/bin/activate
