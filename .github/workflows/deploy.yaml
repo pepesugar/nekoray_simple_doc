@@ -30,13 +30,12 @@ jobs:
         run: |
           uv venv
           source .venv/bin/activate
-          
-      - name: Install dependencies via uv
-        run: |
           uv sync
 
       - name: Build MkDocs site
-        run: uvx mkdocs build --strict
+        run: |
+          source .venv/bin/activate
+          uvx mkdocs build --strict
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
